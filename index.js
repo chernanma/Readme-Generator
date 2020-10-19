@@ -66,6 +66,7 @@ function writeToFile(fileName, data) {
 // Generate Readme object based on User input
 function generateReadme (data){
     const readmeInfo = `
+    Licensed Under :  ![GitHub license](https://img.shields.io/badge/license-${data.license}-red.svg)
 
     # ${data.title}
 
@@ -81,6 +82,7 @@ function generateReadme (data){
     - [Usage Information](#usage-info)
     - [Contribution Guidelines](#contribution-guidelines)
     - [Test Instructions](#test-instructions)
+    - [License](#License)
     - [Author Info](#author-info)
     ---
        
@@ -88,7 +90,7 @@ function generateReadme (data){
     
     ${data.installation}
 
-    [Back To The Top](#${data.title})
+    [Back To The Top](#description)
     ---
 
     ##Usage Info
@@ -102,15 +104,14 @@ function generateReadme (data){
     
     ${data.contribution}
 
-    [Back To The Top](#${data.title})
+    [Back To The Top](#description)
     ---
 
     ## Test Instructions
     ${data.test}
 
-    [Back To The Top](#${data.title})
-    ---
-
+    [Back To The Top](#description)
+    ---     
     ## Author Info
 
     - GitHub -- [${data.github}](https://github.com/${data.github})
@@ -118,8 +119,9 @@ function generateReadme (data){
 
     ## License
     Copyright (c) ${data.author}
-
-    [Back To The Top](#${data.title})
+    This project is covered under the following license
+    ![GitHub license](https://img.shields.io/badge/license-${data.license}-red.svg)   
+    [Back To The Top](#description)
     `;
     return readmeInfo;
 
