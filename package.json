@@ -1,0 +1,23 @@
+{
+  "name": "readme-generator",
+  "version": "1.0.0",
+  "description": "package for readme generator project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chernanma/Readme-Generator.git"
+  },
+  "keywords": [
+    "readme",
+    "generator"
+  ],
+  "author": "Cesar H Martinez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chernanma/Readme-Generator/issues"
+  },
+  "homepage": "https://github.com/chernanma/Readme-Generator#readme"
+}
