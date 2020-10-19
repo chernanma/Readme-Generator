@@ -1,6 +1,5 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
-const path = require("path");
 
 const questions= [
         {
@@ -60,80 +59,84 @@ const questions= [
 
 // function to write README file
 function writeToFile(fileName, data) {
-
+    return fs.writeFileSync(fileName,data);
 }
 
 // Generate Readme object based on User input
 function generateReadme (data){
-    const readmeInfo = `
-    Licensed Under :  ![GitHub license](https://img.shields.io/badge/license-${data.license}-red.svg)
+const readmeInfo = `
+Licensed Under :  ![GitHub license](https://img.shields.io/badge/license-${data.license.replace(' ','')}-red.svg)
 
-    # ${data.title}
+# ${data.title}
 
-    ## Description
+## Description
+
+${data.description}
+
+---
+
+### Table of Contents
+- [Description](#description)
+- [Installation](#installation)
+- [Usage Information](#usage-info)
+- [Contribution Guidelines](#contribution-guidelines)
+- [Test Instructions](#test-instructions)
+- [License](#License)
+- [Author Info](#author-info)
+---
     
-    ${data.description}
+## Installation
 
-    ---
+${data.installation}
 
-    ### Table of Contents
-    - [Description](#description)
-    - [Installation](#installation)
-    - [Usage Information](#usage-info)
-    - [Contribution Guidelines](#contribution-guidelines)
-    - [Test Instructions](#test-instructions)
-    - [License](#License)
-    - [Author Info](#author-info)
-    ---
-       
-    ## Installation
-    
-    ${data.installation}
+---
 
-    [Back To The Top](#description)
-    ---
+## Usage Info
 
-    ##Usage Info
+${data.usageinfo}
 
-    ${data.usageinfo}
+[Back To The Top](#description)
 
-    [Back To The Top](#${data.title})
-    ---
+---
 
-    ##Contribution Guidelines
-    
-    ${data.contribution}
+## Contribution Guidelines
 
-    [Back To The Top](#description)
-    ---
+${data.contribution}
 
-    ## Test Instructions
-    ${data.test}
+---
 
-    [Back To The Top](#description)
-    ---     
-    ## Author Info
+## Test Instructions
 
-    - GitHub -- [${data.github}](https://github.com/${data.github})
-    ---
+${data.test}
 
-    ## License
-    Copyright (c) ${data.author}
-    This project is covered under the following license
-    ![GitHub license](https://img.shields.io/badge/license-${data.license}-red.svg)   
-    [Back To The Top](#description)
-    `;
-    return readmeInfo;
+[Back To The Top](#description)
 
+---     
+## Author Info
+
+- GitHub -- [${data.github}](https://github.com/${data.github})
+- Email -- [${data.email}](mailto:${data.email})
+---
+
+## License
+Copyright (c) ${data.author}
+
+This project is covered under the following license
+
+![GitHub license](https://img.shields.io/badge/license-${data.license.replace(' ','')}-red.svg)   
+
+[Back To The Top](#description)
+`;
+return readmeInfo;
 }
 
 // function to initialize program
 function init() {
     inquirer.prompt(questions)
-        .then (function(response){
-            console.log(response);  
+        .then (function(response){              
             generateReadme (response);
             console.log(generateReadme(response));
+            writeToFile("README.md",generateReadme(response));
         })
         .catch(function(err){
             console.log(err);
