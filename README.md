@@ -14,7 +14,8 @@ This project dynamically generates professional README files base on the user's 
 
 
 
-[Click here to watch video](https://github.com/chernanma/Readme-Generator/Assets/video/video.html)
+[Click here to watch video](https://chernanma.github.io/Readme-Generator/video.html)
+
 ---
 
 ## Acceptance Criteria 
