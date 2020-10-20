@@ -15,17 +15,17 @@ const questions= [
           {
             type: "input",
             name: "description",
-            message: "Please enter a project's description"
+            message: "Please enter a project's description: "
           },
           {
             type: "input",
             name: "installation",
-            message: "Please enter installation instruction if any"            
+            message: "Please enter installation instruction if any:  "            
           },
           {
             type: "input",
             name: "usageinfo",
-            message: "What does the user need to know about this Readme-Generator?",
+            message: "What does the user need to know about this Project?",
           },
           {
             type: "input",
@@ -35,7 +35,7 @@ const questions= [
           {
             type: "input",
             name: "test",
-            message: "What command should be run to run tests?"            
+            message: "What command should be run to run tests ?"            
           },
           { 
             type: "list",
@@ -46,12 +46,12 @@ const questions= [
           {
             type: "input",
             name: "github",
-            message: "What is your GitHub username?"
+            message: "What is your GitHub username ?"
           },
           {
             type: "input",
             name: "email",
-            message: "What is your Email address?"
+            message: "What is your Email address ?"
           }
 
     ];
@@ -133,8 +133,7 @@ return readmeInfo;
 function init() {
     inquirer.prompt(questions)
         .then (function(response){              
-            generateReadme (response);
-            console.log(generateReadme(response));
+            generateReadme (response);            
             writeToFile("README.md",generateReadme(response));
         })
         .catch(function(err){
