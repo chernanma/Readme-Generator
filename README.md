@@ -13,6 +13,8 @@ This project dynamically generates professional README files base on the user's 
 ![picture](./Assets/images/readmegenerator.gif)
 
 
+
+[Click here to watch video](https://github.com/chernanma/Readme-Generator/Assets/video/video.html)
 ---
 
 ## Acceptance Criteria 
